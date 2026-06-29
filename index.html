@@ -1,27 +1,40 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="./javascript/app.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <title>BlackJack</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./javascript/app.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>BlackJack</title>
 </head>
 <body>
-    <main class="blackjack">
-        <h3>BlackJack</h3>
-        <section class="game-board">
-            <div class="game-btn">
-                <button id="btnStart"> Start</button>
-                <button id="btnHit">Hit me</button>
-                <button id="Stay">Stay</button>
-            </div>
-        </section>
-        <section class="status"></section>
-        <article id="deck">
-            <div id="cards"> 52</div>
-        </article>
-        <section id="player"></section>
-    </main>
+  <main class="blackjack">
+    <h3>BlackJack</h3>
+ 
+<section class="game-board">
+  <nav class="game-btn">
+    <button id="btnStart">Start</button>
+    <button id="btnHit">Hit me</button>
+    <button id="Stay">Stay</button>
+  </nav>
+
+<nav class="bet-btn">
+  <button class="btn-bet">$5</button>
+  <button class="btn-bet">$10</button>
+  <button class="btn-bet">$25</button>
+  <button class="btn-bet">$50</button>
+  <button id="btnClearBet">Clear Bet</button>
+</nav>
+</section>
+ 
+    <section class="status"></section>
+ 
+    <article id="deck">
+      <p>Cards left: <strong id="cards">52</strong></p>
+    </article>
+ 
+    <section id="player"></section>
+ 
+  </main>
 </body>
 </html>
+ 
