@@ -1,3 +1,23 @@
+
+
+//  cached elements 
+const btnStart = document.querySelector('#btnStart')
+const btnHit = document.querySelector('#btnHit')
+const btnStay = document.querySelector('#btnStay')
+const five = document.querySelector('#five')
+const ten = document.querySelector('#ten')
+const twoFive = document.querySelector('#twoFive')
+const fifty = document.querySelector('#Fifty')
+const btnClearBet = document.querySelector('#btnClearBet')
+const betBtn = document.querySelectorAll('.bet-btn')
+
+console.log(five)
+console.log(ten)
+console.log(twoFive)
+console.log(fifty)
+console.log(btnClearBet)
+console.log(betBtn)
+
 // variables
 
 const suits = ["hearts", "spades", "clubs", "diamonds"];
@@ -97,17 +117,39 @@ function startGame() {
     setStatus('hit or stay') 
   }
 }
-function hitMe(){
-    if (stage !== 'playing'){
-        return false
-    }
-    playerHand.push(draw())
-    if (finalScore(playerHand) > 21){
-        setStatus('You busted you lose')
-    }
+
+function bustedHand(){
+  if(finalScore(playerHand) > 21){
+    setStatus('You busted')
+  }
 }
 
+function hitMe(){
+    if (stage !== 'playing'){
+        return 
+    }
+    playerHand.push(draw())
+    bustedHand()
+}
 
+function stay(){
+  if (stage !== 'playing'){
+    return
+    dealerPlay()
+  }
+}
+
+function dealerPlay(){
+  if(finalScore(dealerHand) < 17){
+    dealerHand.push(draw())
+    return dealerPlay
+  }
+}
+
+// event listeners
+
+btnStart.addEventListener('click' ,startGame)
+btnHit.addEventListener('click', hitMe)
 
 //init and console checking
 createDeck();
