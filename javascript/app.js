@@ -111,7 +111,7 @@ function playingSplit() {
   }
 
   balance -= bet;
-  maxBet = bet*2
+  maxBet = bet * 2
   split = [playerHand.pop()];
   playerHand.push(draw());
   split.push(draw());
@@ -122,7 +122,7 @@ function playingSplit() {
 
 function startGame() {
   if (bet === 0) {
-    return setStatus("Place your bet");
+    return setStatus("Place your investment");
   }
   if (deck.length < 12) createDeck();
   playerHand = [];
@@ -185,7 +185,7 @@ function clearBet() {
   if (stage !== "betting") return;
   balance += bet;
   bet = 0;
-  setStatus("Cleared bet");
+  setStatus("Cleared investment");
   render();
 }
 function dealerPlay() {
@@ -213,10 +213,10 @@ function dealerPlay() {
 function endRound(results, blackJackHand = false) {
   stage = "betting";
   let totalBet
-  if (totalBet > 0){
+  if (totalBet > 0) {
     totalBet = maxBet
   }
-  else{
+  else {
     totalBet = bet
   }
   if (results === 1) {
@@ -235,10 +235,10 @@ function endRound(results, blackJackHand = false) {
   splitHand = false;
   if (balance <= 0) {
     let time = 5;
-    setStatus(`out of chips restarting in ${time}`);
+    setStatus(`out of points restarting in ${time}`);
     const timer = setInterval(() => {
       time--;
-      setStatus(`out of chips restarting in ${time}`);
+      setStatus(`out of points restarting in ${time}`);
       if (time <= 0) {
         clearInterval(timer);
         location.reload();
@@ -282,15 +282,15 @@ function placeBet(points) {
   setStatus(`Bet: ${bet}P - click start`);
   render();
 }
-function allIn (){
+function allIn() {
   if (stage !== 'betting') return
-  if (balance <= 0){
+  if (balance <= 0) {
     setStatus('You used all your balance')
     return
   }
   bet += balance
   balance = 0
-  setStatus (`All in bet: ${bet}P - click start`)
+  setStatus(`All in investment: ${bet}P - click start`)
   render()
 }
 function render(dealerHidden = false) {
@@ -338,7 +338,7 @@ function render(dealerHidden = false) {
   btnStart.disabled = phase;
   btnHit.disabled = !phase;
   btnStay.disabled = !phase;
-  btnAllIn.disabled = phase || balance <=0
+  btnAllIn.disabled = phase || balance <= 0
   splitBtn.disabled = !splitAllow;
 }
 // event listeners
@@ -357,5 +357,5 @@ fifty.addEventListener("click", () => placeBet(50));
 //init and console checking
 createDeck();
 render();
-setStatus("Place a bet and start");
+setStatus("Place an investment and start");
 
