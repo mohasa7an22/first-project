@@ -1,0 +1,176 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a5c2a;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.blackjack {
+  width: 720px;
+  background: #217a35;
+  border: solid 10px #145220;
+  border-radius: 16px;
+  text-align: center;
+  min-height: 430px;
+  padding-bottom: 30px;
+}
+
+.blackjack h3 {
+  padding: 12px;
+  background: #111;
+  color: white;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  border-radius: 6px 6px 0 0;
+}
+
+.game-board {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.game-btn, .bet-btn {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.game-btn button, .bet-btn button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #111;
+  color: white;
+  transition: background 0.15s ease, transform 0.1s;
+}
+
+.game-btn button:hover:not(:disabled), .bet-btn button:hover:not(:disabled) {
+  background: rgb(30, 144, 255);
+}
+
+.game-btn button:active:not(:disabled),.bet-btn button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.game-btn button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+
+.status {
+  display: inline-block;
+  background: gold;
+  border: solid 4px white;
+  border-radius: 10px;
+  padding: 6px 24px;
+  margin: 10px auto;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
+  min-height: 36px;
+}
+
+#deck {
+  display: inline-block;
+  background: white;
+  color: #222;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: double 5px #111;
+  margin: 10px auto;
+  font-size: 0.9rem;
+}
+
+#player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.hand {
+  background: #f5f5f5;
+  border: solid 4px #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  width: 90%;
+}
+
+.hand h3 span {
+  font-weight: 400;
+  color: #444;
+}
+
+.hand ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+}
+
+.card {
+  width: 54px;
+  height: 80px;
+  background: white;
+  border: solid 3px #808080;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.card.red   { color: #c0392b; border-color: #c0392b; }
+.card.black { color: #111;    border-color: #555; }
+
+.card-back {
+  background: repeating-linear-gradient(
+    45deg, #1a3a8f 0px, #1a3a8f 4px, #2851c4 4px, #2851c4 8px
+  );
+  border-color: #111;
+}
+
+.card .corner {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  width: 90%;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.stats strong {
+  color: gold;
+}
